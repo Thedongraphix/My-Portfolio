@@ -260,10 +260,8 @@ export default function Home({ articles }) {
             Senior Frontend Engineer and Blockchain Developer
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          Hi, I’m Chris, a dedicated and experienced GitHub Field Expert and Open Source Advocate. 
-          My passion lies in building strong relationships within the developer community, and 
-          I am the proud founder of both WebX DAO and SurPath Hub, two open-source communities aimed
-          at promoting the widespread use and accessibility of open source technology.
+          Hi, I’m Chris,  a seasoned web developer with expertise in both web2 and web3 technologies. 
+          Currently, I lead blockchain and web3 initiatives while maintaining a strong foundation in creating secure, user-friendly applications, particularly in the areas of payment systems and platform design. With extensive experience in building scalable and efficient solutions, I aim to bridge the gap between traditional web services and the emerging decentralized world.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
