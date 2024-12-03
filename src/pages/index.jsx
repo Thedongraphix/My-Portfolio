@@ -12,11 +12,11 @@ import {
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
+import image1 from '@/images/photos/TBD.jpg'
+import image2 from '@/images/photos/Friends.jpg'
+import image3 from '@/images/photos/ME.jpg'
+import image4 from '@/images/photos/TBD 2.jpg'
+import image5 from '@/images/photos/mine 2.jpg'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
@@ -247,11 +247,11 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Vincent Villafuerte | Home
+          Chris Oketch | Home
         </title>
         <meta
           name="description"
-          content=" Hi, I'm Vincent, an Octocat-loving developer community enthusiast based in the Philippines."
+          content=" Hi, I'm Chris, a senior frontend engineer and blockchain developer."
         />
       </Head>
       <Container className="mt-9">
