@@ -12,15 +12,11 @@ import {
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import image1 from '@/images/photos/TBD.jpg'
-import image2 from '@/images/photos/Friends.jpg'
-import image3 from '@/images/photos/ME.jpg'
-import image4 from '@/images/photos/TBD 2.jpg'
+
+import image2 from '@/images/photos/Zoho.jpg'
+import image3 from '@/images/photos/Group photo.jpg'
+import image4 from '@/images/photos/Mentor.jpg'
 import image5 from '@/images/photos/mine 2.jpg'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
 import logoDevProtocol from '@/images/logos/devprotocol.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -221,7 +217,7 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {[image2, image3, image4, image5].map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
