@@ -222,7 +222,8 @@ function Photos() {
             key={image.src}
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
+              rotations[imageIndex % rotations.length],
+              'transition-transform duration-300 ease-in-out hover:scale-105 hover:z-10 hover:shadow-xl'
             )}
           >
             <Image
@@ -257,7 +258,7 @@ export default function Home({ articles }) {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
           Hi, I’m Chris,  a seasoned web developer with expertise in both web2 and web3 technologies. 
-          Currently, I lead blockchain and web3 initiatives while maintaining a strong foundation in creating secure, user-friendly applications, particularly in the areas of payment systems and platform design. With extensive experience in building scalable and efficient solutions, I aim to bridge the gap between traditional web services and the emerging decentralized world.
+          Currently, I lead blockchain and web3 initiatives while maintaining a strong foundation in creating secure, user-friendly applications, particularly in the areas of payment systems and platform design. 
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
