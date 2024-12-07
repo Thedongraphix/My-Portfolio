@@ -18,6 +18,7 @@ import image3 from '@/images/photos/Group photo.jpg'
 import image4 from '@/images/photos/Mentor.jpg'
 import image5 from '@/images/photos/mine 2.jpg'
 import logoDevProtocol from '@/images/logos/devprotocol.png'
+import logoZenlipa from '@/images/logos/zenlipa.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
@@ -136,9 +137,9 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Dev Protoocol',
+      company: 'Zenlipa',
       title: 'Program Manager',
-      logo: logoDevProtocol,
+      logo: logoZenlipa,
       start: 'Jan 2022',
       end: 'Nov 2022',
       // start: '2019',
@@ -261,6 +262,7 @@ export default function Home({ articles }) {
           Currently, I lead blockchain and web3 initiatives while maintaining a strong foundation in creating secure, user-friendly applications, particularly in the areas of payment systems and platform design. 
           </p>
           <div className="mt-6 flex gap-6">
+            
             <SocialLink
               href="https://twitter.com/vinzvinci"
               aria-label="Follow on Twitter"
