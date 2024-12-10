@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 function ChevronRightIcon(props) {
   return (
@@ -16,20 +17,25 @@ function ChevronRightIcon(props) {
 
 export function Card({ as: Component = 'div', className, children }) {
   return (
-    <Component
-      className={clsx(className, 'group relative flex flex-col items-start')}
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300 }}
     >
-      {children}
-    </Component>
+      <Component
+        className={clsx(className, 'group relative flex flex-col items-start')}
+      >
+        {children}
+      </Component>
+    </motion.div>
   )
 }
 
 Card.Link = function CardLink({ children, ...props }) {
   return (
     <>
-      <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
       <Link {...props}>
-        <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+        <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
       </Link>
     </>
@@ -92,3 +98,4 @@ Card.Eyebrow = function CardEyebrow({
     </Component>
   )
 }
+

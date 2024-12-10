@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 const variantStyles = {
   primary:
@@ -15,9 +16,24 @@ export function Button({ variant = 'primary', className, href, ...props }) {
     className
   )
 
+  const buttonContent = (
+    <motion.span
+      className="inline-flex items-center"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {props.children}
+    </motion.span>
+  )
+
   return href ? (
-    <Link href={href} className={className} {...props} />
+    <Link href={href} className={className} {...props}>
+      {buttonContent}
+    </Link>
   ) : (
-    <button className={className} {...props} />
+    <button className={className} {...props}>
+      {buttonContent}
+    </button>
   )
 }
+
