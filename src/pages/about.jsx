@@ -44,7 +44,7 @@ export default function About() {
         <title>[Your Name] | About</title>
         <meta
           name="description"
-          content="I’m [Your Name], a passionate developer skilled in web2 and web3 technologies, specializing in payment systems and blockchain solutions."
+          content="I’m Chris, a passionate developer skilled in web2 and web3 technologies, specializing in payment systems and blockchain solutions."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -61,14 +61,14 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m [Your Name], Web2 & Web3 Developer.
+              I’m Chris, Web2 & Web3 Developer.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Hello! 👋
               </p>
               <p>
-                My name is [Your Name]. I am an experienced developer with expertise in building payment systems, blockchain solutions, and scalable applications. As the current web3 and blockchain lead, I have been at the forefront of designing secure and efficient systems that bridge traditional web2 services and decentralized web3 technologies.
+                My name is Chris. I am an experienced developer with expertise in building payment systems, blockchain solutions, and scalable applications. As the current web3 and blockchain lead, I have been at the forefront of designing secure and efficient systems that bridge traditional web2 services and decentralized web3 technologies.
               </p>
               <p>
                 Over the years, I have honed my skills in integrating payment gateways like MPesa and creating platforms that streamline user journeys, including education and financial systems. My passion for technology drives me to constantly explore innovative solutions and mentor aspiring developers in the community.
@@ -80,13 +80,13 @@ export default function About() {
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="https://twitter.com/Thedongraphix" icon={TwitterIcon}>
+              <SocialLink href="https://twitter.com/ChrisOketch" icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
               <SocialLink href="https://github.com/Thedongraphix" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="https://www.linkedin.com/in/[YourLinkedInProfile]" icon={LinkedInIcon} className="mt-4">
+              <SocialLink href="https://www.linkedin.com/in/ChrisOketch" icon={LinkedInIcon} className="mt-4">
                 Connect on LinkedIn
               </SocialLink>
               <SocialLink
@@ -94,7 +94,7 @@ export default function About() {
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                [YourEmailAddress]
+                chrisoketcon@gmail.com
               </SocialLink>
             </ul>
           </div>
