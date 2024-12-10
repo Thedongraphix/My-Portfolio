@@ -1,7 +1,9 @@
 /* eslint-disable*/
 import React from 'react'
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useRef } from 'react';
 import Head from 'next/head'
 import clsx from 'clsx'
 
@@ -197,26 +199,69 @@ function Resume() {
 }
 
 function Photos() {
+  const scrollRef = useRef(null)
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current
+    let isDown = false
+    let startX
+    let scrollLeft
+
+    const handleMouseDown = (e) => {
+      isDown = true
+      startX = e.pageX - scrollContainer.offsetLeft
+      scrollLeft = scrollContainer.scrollLeft
+    }
+
+    const handleMouseLeave = () => {
+      isDown = false
+    }
+
+    const handleMouseUp = () => {
+      isDown = false
+    }
+
+    const handleMouseMove = (e) => {
+      if (!isDown) return
+      e.preventDefault()
+      const x = e.pageX - scrollContainer.offsetLeft
+      const walk = (x - startX) * 2
+      scrollContainer.scrollLeft = scrollLeft - walk
+    }
+
+    if (scrollContainer) {
+      scrollContainer.addEventListener('mousedown', handleMouseDown)
+      scrollContainer.addEventListener('mouseleave', handleMouseLeave)
+      scrollContainer.addEventListener('mouseup', handleMouseUp)
+      scrollContainer.addEventListener('mousemove', handleMouseMove)
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('mousedown', handleMouseDown)
+        scrollContainer.removeEventListener('mouseleave', handleMouseLeave)
+        scrollContainer.removeEventListener('mouseup', handleMouseUp)
+        scrollContainer.removeEventListener('mousemove', handleMouseMove)
+      }
+    }
+  }, [])
 
   return (
     <div className="mt-16 sm:mt-20">
-      <motion.div 
-        className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
+      <div 
+        ref={scrollRef}
+        className="flex overflow-x-auto scrollbar-hide space-x-4 p-4 sm:justify-center"
       >
         {[image2, image3, image4, image5].map((image, imageIndex) => (
           <motion.div
-            key={image.src}
+            key={image}
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length]
             )}
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05, zIndex: 1, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ scale: 1.05, zIndex: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >
             <Image
               src={image}
@@ -226,11 +271,10 @@ function Photos() {
             />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
-
 export default function Home({ articles = [] }) {
   return (
     <>
