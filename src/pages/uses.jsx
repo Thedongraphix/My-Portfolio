@@ -29,7 +29,7 @@ export default function Uses() {
   return (
     <>
       <Head>
-        <title>Vincent Villafuerte | Uses</title>
+        <title>Chris | Uses</title>
         <meta
           name="description"
           content="Software I use, gadgets I love, and other things I recommend."
@@ -65,7 +65,7 @@ export default function Uses() {
               - <b>Storage: </b>500GB SSD<br/>
             </Tool>
             </ToolsSection>
-            <Tool title="Redmi Note 11 Pro">
+            <Tool title="Redmi Note 13 Pro">
               High specs for taking pictures and video recording. I use this for my personal use.
             </Tool>
           </ToolsSection>
