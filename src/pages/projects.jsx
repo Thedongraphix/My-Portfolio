@@ -11,10 +11,10 @@ import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
-    name: 'WebX DAO',
+    name: 'Edupay',
     description:
       'We focus on building and talking about possible future usage of web technologies.',
-    link: { href: 'https://github.com/WebXDAO', label: 'github.com/WebXDAO' },
+    link: { href: 'https://edupaydefi.vercel.app', label: 'EdupayDefi' },
     logo: logoPlanetaria,
   },
   {

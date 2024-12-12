@@ -41,7 +41,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>[Your Name] | About</title>
+        <title> Chris Oketch | About</title>
         <meta
           name="description"
           content="I’m Chris, a passionate developer skilled in web2 and web3 technologies, specializing in payment systems and blockchain solutions."
@@ -62,7 +62,7 @@ export default function About() {
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               I'm Chris <br>
-              </br>Senior Frontend Engineer and Blockchain Developer
+              </br>Senior Frontend Engineer and Blockchain Dev
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
