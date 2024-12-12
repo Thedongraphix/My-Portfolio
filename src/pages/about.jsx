@@ -7,7 +7,6 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import {
   TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
@@ -67,9 +66,6 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Hello! 👋
-              </p>
-              <p>
                 I am an experienced developer with expertise in building payment systems, blockchain solutions, and scalable applications. I have been at the forefront of designing secure and efficient systems that bridge traditional web2 services and decentralized web3 technologies within various communities.
               </p>
               <p>
@@ -82,13 +78,13 @@ export default function About() {
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="https://twitter.com/ChrisOketch" icon={TwitterIcon}>
+              <SocialLink href="https://x.com/_ChrisOketch" icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
               <SocialLink href="https://github.com/Thedongraphix" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="https://www.linkedin.com/in/ChrisOketch" icon={LinkedInIcon} className="mt-4">
+              <SocialLink href="www.linkedin.com/in/chris-oketch-a2a1392a5" icon={LinkedInIcon} className="mt-4">
                 Connect on LinkedIn
               </SocialLink>
               <SocialLink
