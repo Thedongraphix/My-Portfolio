@@ -13,7 +13,7 @@ const projects = [
   {
     name: 'Edupay',
     description:
-      'We focus on building and talking about possible future usage of web technologies.',
+      'A crypto payment solution for educational institutions.',
     link: { href: 'https://edupaydefi.vercel.app', label: 'EdupayDefi' },
     logo: logoPlanetaria,
   },
@@ -41,7 +41,7 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Vincent Villafuerte | Projects</title>
+        <title> Chris Oketch | Projects</title>
         <meta
           name="description"
           content="Things I’ve made trying to put my dent in the universe."
