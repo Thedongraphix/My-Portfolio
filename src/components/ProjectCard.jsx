@@ -14,8 +14,8 @@ function LinkIcon(props) {
 
 export function ProjectCard({ name, description, link, logo }) {
   return (
-    <Card as="li" className="flex flex-col overflow-hidden">
-      <div className="relative h-48 w-full">
+    <Card as="li" className="flex flex-col overflow-hidden rounded-xl">
+      <div className="relative h-48 w-full rounded-t-xl overflow-hidden">
         <Image
           src={`https://api.microlink.io?url=${encodeURIComponent(link.href)}&screenshot=true&meta=false&embed=screenshot.url`}
           alt={`Preview of ${name}`}
@@ -24,8 +24,8 @@ export function ProjectCard({ name, description, link, logo }) {
         />
       </div>
       <div className="flex flex-1 flex-col justify-between p-6">
-        <div className="flex-1">
-          <div className="flex items-center justify-between">
+        <div className="flex-1 space-y-4">
+          <div className="flex items-center space-x-4">
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
                 src={logo}
@@ -38,7 +38,7 @@ export function ProjectCard({ name, description, link, logo }) {
               <Card.Link href={link.href}>{name}</Card.Link>
             </h2>
           </div>
-          <Card.Description className="mt-4">{description}</Card.Description>
+          <Card.Description>{description}</Card.Description>
         </div>
         <p className="relative z-10 mt-6 flex items-center text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
           <LinkIcon className="h-6 w-6 flex-none" />
