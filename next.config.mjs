@@ -9,6 +9,12 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  images: {
+    domains: ['api.microlink.io'],
+  },
+}
+
+if (process.env.NODE_ENV === 'production') {
 }
 
 const withMDX = nextMDX({
