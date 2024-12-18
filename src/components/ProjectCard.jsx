@@ -48,4 +48,3 @@ export function ProjectCard({ name, description, link, logo }) {
     </Card>
   )
 }
-
