@@ -296,7 +296,7 @@ export default function Home({ articles = [] }) {
             className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
             variants={fadeInUp}
           >
-            Senior Frontend Engineer and Blockchain Developer
+          Frontend Engineer and Blockchain Developer
           </motion.h1>
           <motion.p 
             className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
