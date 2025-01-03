@@ -1,6 +1,7 @@
 /* eslint-disable*/
 import React from 'react'
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react';
@@ -20,6 +21,7 @@ import logoZenlipa from '@/images/logos/zenlipa.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
+import router from 'third/lib/service/api'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -245,7 +247,7 @@ function Photos() {
         scrollContainer.removeEventListener('mousemove', handleMouseMove)
       }
     }
-  }, [])
+  }, [router])
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -276,6 +278,7 @@ function Photos() {
   )
 }
 export default function Home({ articles = [] }) {
+  const router = useRouter()
   return (
     <>
       <Head>
