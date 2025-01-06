@@ -1,10 +1,9 @@
 /* eslint-disable*/
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useRef } from 'react';
+import { useRef } from 'react'
 import Head from 'next/head'
 import clsx from 'clsx'
 import dynamic from 'next/dynamic'
@@ -18,13 +17,9 @@ import image3 from '@/images/photos/Group photo.jpg'
 import image4 from '@/images/photos/Mentor.jpg'
 import image5 from '@/images/photos/mine 2.jpg'
 import logoZenlipa from '@/images/logos/zenlipa.png'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 
-
 const SocialLinks = dynamic(() => import('@/components/SocialLinks'), { ssr: false })
-
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -203,83 +198,88 @@ function Resume() {
   )
 }
 
-function Photos() {
-  const scrollRef = useRef(null)
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+const Photos = dynamic(() => Promise.resolve(() => {
+  const PhotosComponent = () => {
+    const router = useRouter()
+    const scrollRef = useRef(null)
+    let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
-  useEffect(() => {
-    const scrollContainer = scrollRef.current
-    let isDown = false
-    let startX
-    let scrollLeft
+    useEffect(() => {
+      const scrollContainer = scrollRef.current
+      let isDown = false
+      let startX
+      let scrollLeft
 
-    const handleMouseDown = (e) => {
-      isDown = true
-      startX = e.pageX - scrollContainer.offsetLeft
-      scrollLeft = scrollContainer.scrollLeft
-    }
-
-    const handleMouseLeave = () => {
-      isDown = false
-    }
-
-    const handleMouseUp = () => {
-      isDown = false
-    }
-
-    const handleMouseMove = (e) => {
-      if (!isDown) return
-      e.preventDefault()
-      const x = e.pageX - scrollContainer.offsetLeft
-      const walk = (x - startX) * 2
-      scrollContainer.scrollLeft = scrollLeft - walk
-    }
-
-    if (scrollContainer) {
-      scrollContainer.addEventListener('mousedown', handleMouseDown)
-      scrollContainer.addEventListener('mouseleave', handleMouseLeave)
-      scrollContainer.addEventListener('mouseup', handleMouseUp)
-      scrollContainer.addEventListener('mousemove', handleMouseMove)
-    }
-
-    return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener('mousedown', handleMouseDown)
-        scrollContainer.removeEventListener('mouseleave', handleMouseLeave)
-        scrollContainer.removeEventListener('mouseup', handleMouseUp)
-        scrollContainer.removeEventListener('mousemove', handleMouseMove)
+      const handleMouseDown = (e) => {
+        isDown = true
+        startX = e.pageX - scrollContainer.offsetLeft
+        scrollLeft = scrollContainer.scrollLeft
       }
-    }
-  }, [router])
 
-  return (
-    <div className="mt-16 sm:mt-20">
-      <div 
-        ref={scrollRef}
-        className="flex overflow-x-auto scrollbar-hide space-x-4 p-4 sm:justify-center"
-      >
-        {[image2, image3, image4, image5].map((image, imageIndex) => (
-          <motion.div
-            key={image}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
-            )}
-            whileHover={{ scale: 1.05, zIndex: 1 }}
-            transition={{ type: "spring", stiffness: 300, damping: 10 }}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </motion.div>
-        ))}
+      const handleMouseLeave = () => {
+        isDown = false
+      }
+
+      const handleMouseUp = () => {
+        isDown = false
+      }
+
+      const handleMouseMove = (e) => {
+        if (!isDown) return
+        e.preventDefault()
+        const x = e.pageX - scrollContainer.offsetLeft
+        const walk = (x - startX) * 2
+        scrollContainer.scrollLeft = scrollLeft - walk
+      }
+
+      if (scrollContainer) {
+        scrollContainer.addEventListener('mousedown', handleMouseDown)
+        scrollContainer.addEventListener('mouseleave', handleMouseLeave)
+        scrollContainer.addEventListener('mouseup', handleMouseUp)
+        scrollContainer.addEventListener('mousemove', handleMouseMove)
+      }
+
+      return () => {
+        if (scrollContainer) {
+          scrollContainer.removeEventListener('mousedown', handleMouseDown)
+          scrollContainer.removeEventListener('mouseleave', handleMouseLeave)
+          scrollContainer.removeEventListener('mouseup', handleMouseUp)
+          scrollContainer.removeEventListener('mousemove', handleMouseMove)
+        }
+      }
+    }, [router])
+
+    return (
+      <div className="mt-16 sm:mt-20">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto scrollbar-hide space-x-4 p-4 sm:justify-center"
+        >
+          {[image2, image3, image4, image5].map((image, imageIndex) => (
+            <motion.div
+              key={image.src}
+              className={clsx(
+                'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+                rotations[imageIndex % rotations.length]
+              )}
+              whileHover={{ scale: 1.05, zIndex: 1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            >
+              <Image
+                src={image}
+                alt=""
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+  return PhotosComponent
+}), { ssr: false })
+
 export default function Home({ articles = [] }) {
   const router = useRouter()
   return (
