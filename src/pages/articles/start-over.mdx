@@ -4,9 +4,9 @@ export const meta = {
   author: 'Chris Oketch',
   date: '2022-12-24',
   title: 'Start Over - A New Beginning',
-  description:
-    'Ongoing',
+  description: 'Ongoing',
 }
 
-export default (props) => <ArticleLayout meta={meta} {...props} />
-
+export default function Article(props) {
+  return <ArticleLayout meta={meta} {...props} />
+}

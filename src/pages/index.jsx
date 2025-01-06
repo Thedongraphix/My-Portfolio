@@ -7,11 +7,11 @@ import Image from 'next/image'
 import { useRef } from 'react';
 import Head from 'next/head'
 import clsx from 'clsx'
+import dynamic from 'next/dynamic'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import SocialLinks from '@/components/SocialLinks'
 
 import image2 from '@/images/photos/Zoho.jpg'
 import image3 from '@/images/photos/Group photo.jpg'
@@ -21,7 +21,10 @@ import logoZenlipa from '@/images/logos/zenlipa.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
-import router from 'third/lib/service/api'
+
+
+const SocialLinks = dynamic(() => import('@/components/SocialLinks'), { ssr: false })
+
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -343,11 +346,15 @@ export default function Home({ articles = [] }) {
 
 export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
+    const {generateRssFeed} = await import('@/lib/generateRssFeed')
     await generateRssFeed()
   }
 
+
+  const { getAllArticles } = await import('@/lib/getAllArticles')
   const articles = await getAllArticles()
   const slicedArticles = articles.slice(0, 4).map(({ component, ...meta }) => meta)
+
 
   return {
     props: {

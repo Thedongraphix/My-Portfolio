@@ -1,53 +1,61 @@
 import ReactDOMServer from 'react-dom/server'
 import { Feed } from 'feed'
-import { mkdir, writeFile } from 'fs/promises'
+import path from 'path'
 
-import { getAllArticles } from './getAllArticles'
+async function generateRssFeed() {
+  try {
+    const { mkdir, writeFile } = await import('fs/promises')
+    const { getAllArticles } = await import('./getAllArticles')
 
-export async function generateRssFeed() {
-  let articles = await getAllArticles()
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  let author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
-  }
+    const articles = await getAllArticles()
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+    const author = {
+      name: 'Spencer Sharp',
+      email: 'spencer@planetaria.tech',
+    }
 
-  let feed = new Feed({
-    title: author.name,
-    description: 'Your blog description',
-    author,
-    id: siteUrl,
-    link: siteUrl,
-    image: `${siteUrl}/favicon.ico`,
-    favicon: `${siteUrl}/favicon.ico`,
-    copyright: `All rights reserved ${new Date().getFullYear()}`,
-    feedLinks: {
-      rss2: `${siteUrl}/rss/feed.xml`,
-      json: `${siteUrl}/rss/feed.json`,
-    },
-  })
-
-  for (let article of articles) {
-    let url = `${siteUrl}/articles/${article.slug}`
-    let html = ReactDOMServer.renderToStaticMarkup(
-      <article.component isRssFeed />
-    )
-
-    feed.addItem({
-      title: article.title,
-      id: url,
-      link: url,
-      description: article.description,
-      content: html,
-      author: [author],
-      contributor: [author],
-      date: new Date(article.date),
+    const feed = new Feed({
+      title: 'My Blog',
+      description: 'This is my personal blog',
+      id: siteUrl,
+      link: siteUrl,
+      language: 'en',
+      image: `${siteUrl}/favicon.ico`,
+      favicon: `${siteUrl}/favicon.ico`,
+      copyright: `All rights reserved ${new Date().getFullYear()}, Spencer Sharp`,
+      updated: new Date(),
+      generator: 'Feed for Node.js',
+      feedLinks: {
+        rss2: `${siteUrl}/rss/feed.xml`,
+        json: `${siteUrl}/rss/feed.json`,
+        atom: `${siteUrl}/rss/atom.xml`,
+      },
+      author,
     })
-  }
 
-  await mkdir('./public/rss', { recursive: true })
-  await Promise.all([
-    writeFile('./public/rss/feed.xml', feed.rss2(), 'utf8'),
-    writeFile('./public/rss/feed.json', feed.json1(), 'utf8'),
-  ])
+    articles.forEach((article) => {
+      const url = `${siteUrl}/articles/${article.slug}`
+      feed.addItem({
+        title: article.title,
+        id: url,
+        link: url,
+        description: article.description,
+        content: ReactDOMServer.renderToStaticMarkup(article.content),
+        author: [author],
+        contributor: [author],
+        date: new Date(article.date),
+      })
+    })
+
+    const rssDirectory = path.join(process.cwd(), 'public', 'rss')
+
+    await mkdir(rssDirectory, { recursive: true })
+    await writeFile(path.join(rssDirectory, 'feed.xml'), feed.rss2())
+    await writeFile(path.join(rssDirectory, 'atom.xml'), feed.atom1())
+    await writeFile(path.join(rssDirectory, 'feed.json'), feed.json1())
+  } catch (error) {
+    console.error('Failed to generate RSS feed:', error)
+  }
 }
+
+export { generateRssFeed }
