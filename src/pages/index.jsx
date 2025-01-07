@@ -305,7 +305,7 @@ export default function Home({ articles = [] }) {
             className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
             variants={fadeInUp}
           >
-            Hi, I'm Chris, a seasoned web developer with expertise in both web2 and web3 technologies. 
+            Hi, I'm Chris a seasoned web developer with expertise in both web2 and web3 technologies. 
             Currently, I lead blockchain and web3 initiatives while maintaining a strong foundation in creating secure, user-friendly applications, particularly in the areas of payment systems and platform design. 
           </motion.p>
           <SocialLinks />
