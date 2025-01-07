@@ -4,6 +4,11 @@ module.exports = {
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography', 'tailwind-scrollbar-hide')],
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Jost', 'sans-serif'],
+      },
+
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],
@@ -18,6 +23,7 @@ module.exports = {
       '7xl': ['4.5rem', { lineHeight: '1' }],
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
+    }
     },
     typography: (theme) => ({
       invert: {
@@ -301,3 +307,4 @@ module.exports = {
     }),
   },
 }
+

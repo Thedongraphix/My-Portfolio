@@ -1,3 +1,4 @@
+// filepath: /C:/Users/ADMIN/Portfolio/My-Portfolio/src/pages/_app.jsx
 import { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Footer } from '@/components/Footer'
@@ -20,7 +21,7 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <AnimatePresence mode="sync">
-      <div className="fixed inset-0 flex justify-center sm:px-8">
+      <div className="fixed inset-0 flex justify-center sm:px-8 Poppins">
         <div className="flex w-full max-w-7xl lg:px-8">
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </div>
