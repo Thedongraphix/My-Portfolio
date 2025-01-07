@@ -100,22 +100,22 @@ export default function SocialLinks() {
       }}
     >
       <SocialLink
-        href="https://twitter.com/vinzvinci"
+        href="https://x.com/_ChrisOketch?t=VZtugyKan4VEcBNE3bsxAQ&s=09"
         aria-label="Follow on Twitter"
         icon={TwitterIcon}
       />
       <SocialLink
-        href="https://www.instagram.com/vinzvinci/"
+        href="https://www.instagram.com/its_chrisoketch?igsh=MXdtamptZmNzM3o4cQ=="
         aria-label="Follow on Instagram"
         icon={InstagramIcon}
       />
       <SocialLink
-        href="https://github.com/vinzvinci"
+        href="https://github.com/Thedongraphix"
         aria-label="Follow on GitHub"
         icon={GitHubIcon}
       />
       <SocialLink
-        href="https://www.linkedin.com/in/vinzvinci/"
+        href="https://www.linkedin.com/in/chris-oketch-a2a1392a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
         aria-label="Follow on LinkedIn"
         icon={LinkedInIcon}
       />
