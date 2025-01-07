@@ -15,7 +15,7 @@ import { Container } from '@/components/Container'
 import image2 from '@/images/photos/Zoho.jpg'
 import image3 from '@/images/photos/Group photo.jpg'
 import image4 from '@/images/photos/Mentor.jpg'
-import image5 from '@/images/photos/mine 2.jpg'
+import image5 from '@/images/photos/abc photo.jpg'
 import logoZenlipa from '@/images/logos/zenlipa.png'
 import { formatDate } from '@/lib/formatDate'
 
