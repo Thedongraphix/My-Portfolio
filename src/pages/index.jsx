@@ -153,9 +153,9 @@ function Resume() {
 
     {
       company: 'Yellow Card',
-      title: 'Ambassador',
+      title: 'Brand Ambassador',
       logo: logoYellowCard,
-      start: 'September 2024',
+      start: 'Sep 2024',
       end: 'To present',
     },
   ]
