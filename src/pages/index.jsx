@@ -17,6 +17,7 @@ import image3 from '@/images/photos/Group photo.jpg'
 import image4 from '@/images/photos/Mentor.jpg'
 import image5 from '@/images/photos/abc photo.jpg'
 import logoZenlipa from '@/images/logos/zenlipa.png'
+import logoYellowCard from '@/images/logos/YellowCard.jpeg'
 import { formatDate } from '@/lib/formatDate'
 
 const SocialLinks = dynamic(() => import('@/components/SocialLinks'), { ssr: false })
@@ -149,6 +150,14 @@ function Resume() {
       start: 'Jan 2024',
       end: 'To present',
     },
+
+    {
+      company: 'Yellow Card',
+      title: 'Brand Ambassador',
+      logo: logoYellowCard,
+      start: 'September 2024',
+      end: 'To present',
+    },
   ]
 
   return (
@@ -165,7 +174,12 @@ function Resume() {
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+              <Image 
+                src={role.logo} 
+                alt="" 
+                className={`h-7 w-7 ${role.company === 'Yellow Card' ? 'rounded-full' : ''}`} 
+                unoptimized 
+              />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
